@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "a": {
+      "tag": "forge:nuggets/blatium"
+    },
+    "b": {
+      "item": "minecraft:eneder_pearl"
+    },
+    "c": {
+      "tag": "forge:dusts/blatium"
+    }
+  },
+  "pattern": [
+    "cac",
+    "aba",
+    "cac"
+  ],
+  "result": {
+    "item": "blat_mining_dim:mining_dim_plate"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "blat_mining_dim"
+    }
+  ]
+}
