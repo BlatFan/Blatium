@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "blatium:block/nlium_block"
+    }
+  }
+}

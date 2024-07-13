@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blatium",
+  "key": {
+    "a": {
+      "tag": "forge:ingots/blatium"
+    },
+    "i": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "pattern": [
+    " a ",
+    "aia",
+    " a "
+  ],
+  "result": {
+    "item": "blatium:blatium_gear"
+  }
+}

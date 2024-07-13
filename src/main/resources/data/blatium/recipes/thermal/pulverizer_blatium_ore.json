@@ -1,0 +1,19 @@
+{
+  "type": "thermal:pulverizer",
+  "ingredient": {
+    "tag": "forge:ores/blatium"
+  },
+  "result": [
+    {
+      "item": "blatium:blatium_dust",
+      "chance": 2.0
+    }
+  ],
+  "experience": 0.2,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "thermal"
+    }
+  ]
+}

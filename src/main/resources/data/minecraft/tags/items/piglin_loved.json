@@ -1,0 +1,25 @@
+{
+    "values": [
+        "blatium:blatium_sword",
+        "blatium:blatium_pickaxe",
+        "blatium:blatium_axe",
+        "blatium:blatium_shovel",
+        "blatium:blatium_hoe",
+
+        "blatium:blatium_helmet",
+        "blatium:blatium_chestplate",
+        "blatium:blatium_leggings",
+        "blatium:blatium_boots",
+        
+        "blatium:nlium_sword",
+        "blatium:nlium_pickaxe",
+        "blatium:nlium_axe",
+        "blatium:nlium_shovel",
+        "blatium:nlium_hoe",
+
+        "blatium:nlium_helmet",
+        "blatium:nlium_chestplate",
+        "blatium:nlium_leggings",
+        "blatium:nlium_boots"   
+    ]
+}

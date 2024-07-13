@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "blatium:raw_nlium"
+  },
+  "result": "blatium:nlium_ingot"
+}

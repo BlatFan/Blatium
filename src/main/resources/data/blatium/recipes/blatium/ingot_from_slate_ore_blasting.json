@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "ingredient": {
+    "item": "blatium:deepslate_blatium_ore"
+  },
+  "result": "blatium:blatium_ingot"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "blatium",
+  "key": {
+    "a": {
+      "tag": "forge:ingots/nlium"
+    }
+  },
+  "pattern": [
+    "aaa"
+  ],
+  "result": {
+    "item": "blatium:nlium_plate",
+	"count": 3
+  }
+}

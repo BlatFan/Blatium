@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "result": "blatium:blatium_ingot",
+  "ingredient": {
+    "tag": "forge:dusts/blatium"
+  },
+  "cookingtime": 50,
+  "experience": 0.3
+}

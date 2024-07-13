@@ -1,0 +1,14 @@
+{
+    "type": "productivebees:bee_breeding",
+    "parent1": "productivebees:draconic",
+    "parent2": "blatium:blatium",
+    "offspring": [
+        "blatium:nlium"
+    ],
+    "conditions": [
+        {
+            "type": "forge:mod_loaded",
+            "modid": "productivebees"
+        }
+    ]
+}

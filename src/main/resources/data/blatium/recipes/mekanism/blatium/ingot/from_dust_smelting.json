@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "result": "blatium:blatium_ingot",
+  "ingredient": {
+    "tag": "forge:dusts/blatium"
+  },
+  "cookingtime": 100,
+  "experience": 0.3
+}

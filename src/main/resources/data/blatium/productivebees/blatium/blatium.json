@@ -1,0 +1,17 @@
+{
+  "primaryColor": "#ba68c8",
+  "secondaryColor": "#9c27b0",
+  "flowerTag": "forge:storage_blocks/blatium",
+  "selfbreed": false,
+  "breedingItem": "blatium:blatium_ingot",
+  "breedingItemCount": 4,
+  "invulnerability": [
+    "mekanism.radiation"
+  ],
+  "conditions": [
+    {
+      "modid": "productivebees",
+      "type": "forge:mod_loaded"
+    }
+  ]
+}

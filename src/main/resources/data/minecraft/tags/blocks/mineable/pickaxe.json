@@ -1,0 +1,10 @@
+{
+  "values": [
+    "blatium:blatium_block",
+    "blatium:blatium_ore",
+    "blatium:deepslate_blatium_ore",
+    
+    "blatium:nlium_block",
+    "blatium:nlium_ore"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/nlium"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "blatium:nlium_nugget"
+  }
+}

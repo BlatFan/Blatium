@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "nlium",
+  "key": {
+    "a": {
+      "tag": "forge:nuggets/nlium"
+    },
+    "b": {
+      "item": "blatium:blatium_upgrade_smithing_template"
+    }
+  },
+  "pattern": [
+    "aaa",
+    "aba",
+    "aaa"
+  ],
+  "result": {
+    "item": "blatium:nlium_upgrade_smithing_template",
+	"count": 1
+  }
+}
