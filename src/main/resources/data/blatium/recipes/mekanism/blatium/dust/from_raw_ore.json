@@ -9,5 +9,11 @@
   "output": {
     "item": "blatium:blatium_dust",
     "count": 4
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
 }

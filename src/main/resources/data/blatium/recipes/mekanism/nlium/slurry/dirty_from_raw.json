@@ -14,5 +14,11 @@
     "slurry": "blatium:dirty_nlium",
     "amount": 2000,
     "chemicalType": "slurry"
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
 }

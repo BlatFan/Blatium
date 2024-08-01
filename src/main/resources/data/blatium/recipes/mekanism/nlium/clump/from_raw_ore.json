@@ -12,5 +12,11 @@
   "output": {
     "item": "blatium:nlium_clump",
     "count": 2
-  }
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
 }

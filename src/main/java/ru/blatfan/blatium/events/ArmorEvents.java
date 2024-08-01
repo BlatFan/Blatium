@@ -18,9 +18,6 @@ import ru.blatfan.blatium.item.BlatArmor;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.FORGE)
 public class ArmorEvents {
-	
-
-
 	@SubscribeEvent
 	public static void onPlayerFall(LivingFallEvent event) {
 		Item boots = event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem();

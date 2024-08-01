@@ -14,7 +14,7 @@
         },
         {
           "type": "minecraft:item",
-          "name": "blatium:blatium_nugget"
+          "name": "blatium:blatium_ingot"
         }
       ],
       "rolls": 1.0
