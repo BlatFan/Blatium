@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:is_ocean",
+  "biomes": "#minecraft:is_overworld",
   "features": "blatium:ore_blatium_placed",
   "step": "underground_ores"
 }

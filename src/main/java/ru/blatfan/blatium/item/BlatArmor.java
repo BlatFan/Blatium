@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
+import ru.blatfan.blatium.Blatium;
 import ru.blatfan.blatium.init.BlatiumArmorMaterial;
 
 import java.util.List;
@@ -19,8 +20,13 @@ public class BlatArmor extends ArmorItem {
     private final BlatiumArmorMaterial material;
     
     public BlatArmor(BlatiumArmorMaterial armorMaterial, ArmorItem.Type type) {
-        super(armorMaterial, type, new Item.Properties().fireResistant().rarity(Rarity.EPIC));
+        super(armorMaterial, type, new Item.Properties().fireResistant().rarity(armorMaterial==BlatiumArmorMaterial.BLATIUM ? Blatium.RARITY_BLATIUM : Blatium.RARITY_NLIUM));
         this.material=armorMaterial;
+    }
+    
+    @Override
+    public Component getName(ItemStack p_41458_) {
+        return super.getName(p_41458_).copy().withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM));
     }
     
     @Override
@@ -31,9 +37,9 @@ public class BlatArmor extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltips, TooltipFlag tooltipFlag) {
         tooltips.add(Component.empty());
-        tooltips.add(Component.translatable("tooltip.blatium.unbreakable").withStyle(ChatFormatting.LIGHT_PURPLE));
+        tooltips.add(Component.translatable("tooltip.blatium.unbreakable").withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
         tooltips.add(Component.empty());
-        tooltips.add(Component.translatable("tooltip.blatium."+getType().toString().toLowerCase()).withStyle(ChatFormatting.DARK_PURPLE));
+        tooltips.add(Component.translatable("tooltip.blatium."+getType().toString().toLowerCase()).withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
         tooltips.add(Component.empty());
         
         super.appendHoverText(itemStack, level, tooltips, tooltipFlag);

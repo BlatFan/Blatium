@@ -7,7 +7,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -15,8 +14,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import ru.blatfan.blatium.ServerConfig;
 
 import java.util.EnumMap;
@@ -24,23 +21,20 @@ import java.util.UUID;
 import java.util.function.Supplier;
 
 public enum BlatiumArmorMaterial implements ArmorMaterial {
-   BLATIUM("blatium", ServerConfig.BLATIUM_CONFIG, 42, 85, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ItemTags.create(new ResourceLocation("forge:ingots/blatium")))),
-   NLIUM("nlium", ServerConfig.NLIUM_CONFIG, 82, 125, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ItemTags.create(new ResourceLocation("forge:ingots/nlium"))));
+   BLATIUM("blatium", ServerConfig.BLATIUM_CONFIG, 85, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ItemTags.create(new ResourceLocation("forge:ingots/blatium")))),
+   NLIUM("nlium", ServerConfig.NLIUM_CONFIG, 125, SoundEvents.ARMOR_EQUIP_NETHERITE, () -> Ingredient.of(ItemTags.create(new ResourceLocation("forge:ingots/nlium"))));
    
-   private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
    private final String name;
-   private final int durabilityMultiplier;
-   private final int enchantmentValue;
+    private final int enchantmentValue;
    private final SoundEvent sound;
-   private final LazyLoadedValue<Ingredient> repairIngredient;
+   private final Ingredient repairIngredient;
    private final ServerConfig.MaterialSetConfig config;
    
-   BlatiumArmorMaterial(String pName, ServerConfig.MaterialSetConfig config, int pDurabilityMultiplier, int pEnchantmentValue, SoundEvent pSound, Supplier<Ingredient> pRepairIngredient) {
+   BlatiumArmorMaterial(String pName, ServerConfig.MaterialSetConfig config, int pEnchantmentValue, SoundEvent pSound, Supplier<Ingredient> pRepairIngredient) {
       this.name = pName;
-      this.durabilityMultiplier = pDurabilityMultiplier;
-      this.enchantmentValue = pEnchantmentValue;
+       this.enchantmentValue = pEnchantmentValue;
       this.sound = pSound;
-      this.repairIngredient = new LazyLoadedValue<>(pRepairIngredient);
+      this.repairIngredient = pRepairIngredient.get();
       this.config = config;
       slotToAttributeMap = null;
    }
@@ -115,7 +109,7 @@ public enum BlatiumArmorMaterial implements ArmorMaterial {
    
    @Override
    public Ingredient getRepairIngredient() {
-      return repairIngredient.get();
+      return repairIngredient;
    }
    
    public String getName() {

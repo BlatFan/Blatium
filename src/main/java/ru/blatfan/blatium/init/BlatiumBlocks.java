@@ -1,8 +1,5 @@
 package ru.blatfan.blatium.init;
 
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
@@ -11,6 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import ru.blatfan.blatium.Blatium;
+import ru.blatfan.blatium.item.BlatBlockItem;
 
 import java.util.function.Supplier;
 
@@ -26,9 +24,7 @@ public class BlatiumBlocks {
     
     public static RegistryObject<Block> register(String id, Supplier<Block> sup){
         RegistryObject<Block> reg = REGISTRY.register(id, sup);
-        
-        BlatiumItems.BLOCKS.put(id, BlatiumItems.REGISTRY.register(id, () -> new BlockItem(reg.get(), new Item.Properties().fireResistant().rarity(Rarity.EPIC))));
-        
+        BlatiumItems.BLOCKS.put(id, BlatiumItems.REGISTRY.register(id, () -> new BlatBlockItem(reg.get(), id.contains("blatium"))));
         return reg;
     }
 }
