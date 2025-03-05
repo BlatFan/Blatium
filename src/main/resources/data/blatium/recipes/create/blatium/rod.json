@@ -1,0 +1,16 @@
+{
+	"type":"createaddition:rolling",
+	"input": {
+      	"tag": "forge:ingots/blatium"
+	},
+	"result": {
+		"item": "blatium:blatium_rod",
+		"count": 1
+	},
+	"conditions": [
+		{
+			"type": "forge:mod_loaded",
+			"modid": "createaddition"
+    }
+	]
+}

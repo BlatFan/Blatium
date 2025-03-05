@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:item_application",
+        "ingredients": [
+          {
+            "item": "minecraft:obsidian"
+          },
+          {
+            "tag": "forge:plates/nlium"
+          }
+        ],
+        "results": [
+          {
+            "item": "blatium:power_obsidian"
+          }
+        ]
+      }
+    }
+  ]
+}

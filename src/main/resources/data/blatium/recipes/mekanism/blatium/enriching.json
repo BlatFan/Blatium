@@ -1,0 +1,17 @@
+{
+  "type":"mekanism:enriching",
+  "input":{
+    "ingredient":{
+      "tag":"forge:dusts/blatium"
+    }
+  },
+  "output":{
+    "item":"blatium:enriched_blatium"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

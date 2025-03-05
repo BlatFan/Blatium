@@ -1,5 +1,8 @@
 {
   "values": [
-    "blatium:blatium_clump"
+    {
+      "id": "blatium:blatium_clump",
+      "required": false
+    }
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+				"type": "create:crushing",
+				"ingredients": [
+					{
+						"tag": "forge:ores/nlium"
+					}
+				],
+				"processingTime": 400,
+				"results": [
+					{
+						"item": "blatium:crushed_raw_nlium"
+					},
+					{
+						"chance": 0.75,
+						"item": "blatium:crushed_raw_nlium"
+					},
+					{
+						"chance": 0.75,
+						"item": "create:experience_nugget"
+					}
+				]
+			}
+    }
+  ]
+}

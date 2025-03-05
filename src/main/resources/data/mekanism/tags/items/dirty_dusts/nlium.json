@@ -1,5 +1,8 @@
 {
   "values": [
-    "blatium:nlium_dirty"
+    {
+      "id": "blatium:nlium_dirty",
+      "required": false
+    }
   ]
 }

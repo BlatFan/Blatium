@@ -16,73 +16,75 @@ public class ServerConfig {
 
     static ForgeConfigSpec SPEC;
 
-    public static MaterialSetConfig BLATIUM_CONFIG;
-    public static MaterialSetConfig NLIUM_CONFIG;
+    public static final MaterialSetConfig BLATIUM_CONFIG;
+    public static final MaterialSetConfig NLIUM_CONFIG;
+    public static final ForgeConfigSpec.BooleanValue HELMET, CHESTPLATE, LEGGINGS, BOOTS, FULL_SET;
 
     static {
         BUILDER.push("Materials Config");
         BUILDER.comment("Changing armor and tools values requires game restart");
 
-       BLATIUM_CONFIG = defineConfig(BUILDER, "blatium",
-           List.of(400, 550, 500, 400),
-           25,
-           25,
-           750,
-           1.4f,
-           25,
-           1.2f,
-           10f,
-           800,
-           1f,
-           10,
-           1f,
-           10,
-           4f
-       );
-        NLIUM_CONFIG = defineConfig(BUILDER, "nlium",
+        BLATIUM_CONFIG = defineConfig("blatium",
+            List.of(400, 550, 500, 400),
+            25,
+            25,
+            750,
+            25,
+            10f,
+            800,
+            10,
+            10
+        );
+        NLIUM_CONFIG = defineConfig("nlium",
                 List.of(800, 1100, 1000, 800),
                 50,
                 50,
                 1500,
-                1.4f,
-                50,
-                1.2f,
+            50,
             20f,
                 1600,
-                1f,
-                20,
-                1f,
-                20,
-                4f
-            );
+            20,
+            20
+        );
+        BUILDER.pop();
+        BUILDER.push("Armor Damage Immune");
+        
+        HELMET = BUILDER.define("helmet", true);
+        CHESTPLATE = BUILDER.define("chestplate", true);
+        LEGGINGS = BUILDER.define("leggings", true);
+        BOOTS = BUILDER.define("boots", true);
+        FULL_SET = BUILDER.define("full_set", true);
+        
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
 
-    private static MaterialSetConfig defineConfig(ForgeConfigSpec.Builder builder, String name, List<Integer> defenseValues, int toughness, double knockbackResistance,
-                                                  int swordDamage, float swordSpeed,
-                                                  int pickaxeDamage, float pickaxeSpeed,float pickaxeDestroyTime,
-                                                  int axeDamage, float axeSpeed,
-                                                  int shovelDamage, float shovelSpeed,
-                                                  int hoeDamage, float hoeSpeed
-                                                  ) {
-        builder.push(name);
+    private static MaterialSetConfig defineConfig(String name,
+                                                  List<Integer> defenseValues, int toughness, double knockbackResistance,
+                                                  int swordDamage,
+                                                  int pickaxeDamage, float pickaxeDestroyTime,
+                                                  int axeDamage,
+                                                  int shovelDamage,
+                                                  int hoeDamage
+    
+    ) {
+        ServerConfig.BUILDER.push(name);
         var config = new MaterialSetConfig(
-                builder.defineList("armor.values", () -> defenseValues, (x) -> true),
-                builder.define("armor.toughness", toughness),
-                builder.define("armor.knockbackResistance", knockbackResistance),
-                builder.define("sword.damage", swordDamage),
-                builder.define("pickaxe.damage", pickaxeDamage),
-                builder.define("pickaxe.destroyTime", pickaxeDestroyTime),
-                builder.define("axe.damage", axeDamage),
-                builder.define("hoe.damage", hoeDamage),
-                builder.define("shovel.damage", shovelDamage),
-                builder.define("sword.speed", swordSpeed),
-                builder.define("pickaxe.speed", pickaxeSpeed),
-                builder.define("axe.speed", axeSpeed),
-                builder.define("shovel.speed", shovelSpeed),
-                builder.define("hoe.speed", hoeSpeed));
-        builder.pop();
+                ServerConfig.BUILDER.defineList("armor.values", () -> defenseValues, (x) -> true),
+                ServerConfig.BUILDER.define("armor.toughness", toughness),
+                ServerConfig.BUILDER.define("armor.knockbackResistance", knockbackResistance),
+                ServerConfig.BUILDER.define("sword.damage", swordDamage),
+                ServerConfig.BUILDER.define("pickaxe.damage", pickaxeDamage),
+                ServerConfig.BUILDER.define("pickaxe.destroyTime", pickaxeDestroyTime),
+                ServerConfig.BUILDER.define("axe.damage", axeDamage),
+                ServerConfig.BUILDER.define("hoe.damage", hoeDamage),
+                ServerConfig.BUILDER.define("shovel.damage", shovelDamage),
+                ServerConfig.BUILDER.define("sword.speed", (float) 1.4),
+                ServerConfig.BUILDER.define("pickaxe.speed", (float) 1.2),
+                ServerConfig.BUILDER.define("axe.speed", (float) 1.0),
+                ServerConfig.BUILDER.define("shovel.speed", (float) 1.0),
+                ServerConfig.BUILDER.define("hoe.speed", (float) 4.0));
+        ServerConfig.BUILDER.pop();
         return config;
     }
 

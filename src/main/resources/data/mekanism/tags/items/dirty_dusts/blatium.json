@@ -1,5 +1,8 @@
 {
   "values": [
-    "blatium:blatium_dirty"
+    {
+      "id": "blatium:blatium_dirty",
+      "required": false
+    }
   ]
 }

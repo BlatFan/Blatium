@@ -1,5 +1,8 @@
 {
   "values": [
-    "blatium:blatium_shard"
+    {
+      "id": "blatium:blatium_shard",
+      "required": false
+    }
   ]
 }

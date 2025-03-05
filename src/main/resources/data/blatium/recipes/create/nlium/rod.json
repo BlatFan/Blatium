@@ -1,0 +1,16 @@
+{
+	"type":"createaddition:rolling",
+	"input": {
+      	"tag": "forge:ingots/nlium"
+	},
+	"result": {
+		"item": "blatium:nlium_rod",
+		"count": 1
+	},
+	"conditions": [
+		{
+			"type": "forge:mod_loaded",
+			"modid": "createaddition"
+    }
+	]
+}

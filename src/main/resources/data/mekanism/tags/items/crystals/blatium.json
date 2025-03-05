@@ -1,5 +1,8 @@
 {
   "values": [
-    "blatium:blatium_crystal"
+    {
+      "id": "blatium:blatium_crystal",
+      "required": false
+    }
   ]
 }

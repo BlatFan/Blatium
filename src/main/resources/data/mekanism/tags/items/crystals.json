@@ -1,6 +1,12 @@
 {
   "values": [
-    "blatium:blatium_crystal",
-    "blatium:nlium_crystal"
+    {
+      "id": "blatium:blatium_crystal",
+      "required": false
+    },
+    {
+      "id": "blatium:nlium_crystal",
+      "required": false
+    }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:mechanical_crafting",
+        "acceptMirrored": false,
+        "key": {
+          "A": {
+            "item": "blatium:creative_casing"
+          },
+          "B": {
+            "item": "blatium:blatium_block"
+          },
+          "C": {
+            "item": "blatium:power_obsidian"
+          },
+          "D": {
+            "item": "create:andesite_alloy_block"
+          },
+          "E": {
+            "item": "blatium:blatium_gear"
+          },
+          "F": {
+            "item": "blatium:nlium_gear"
+          },
+          "G": {
+            "item": "blatium:nlium_rod"
+          },
+          "H": {
+            "item": "blatium:minecraft:nether_star"
+          },
+          "I": {
+            "item": "create:stressometer"
+          }
+        },
+        "pattern": [
+          "ABCCA  ",
+          "AIGHDDD",
+          "AEFEA  ",
+          "AFEFA  ",
+          "ABCCA  "
+        ],
+        "result": {
+          "count": 1,
+          "item": "create:creative_motor"
+        }
+      }
+    }
+  ]
+}

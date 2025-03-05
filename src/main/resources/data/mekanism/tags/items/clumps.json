@@ -1,6 +1,12 @@
 {
   "values": [
-    "blatium:blatium_clump",
-    "blatium:nlium_clump"
+    {
+      "id": "blatium:blatium_clump",
+      "required": false
+    },
+    {
+      "id": "blatium:nlium_clump",
+      "required": false
+    }
   ]
 }

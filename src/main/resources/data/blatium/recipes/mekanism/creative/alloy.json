@@ -1,0 +1,21 @@
+{
+  "type":"mekanism:metallurgic_infusing",
+  "chemicalInput":{
+    "amount":100,
+    "tag":"blatium:blatium"
+  },
+  "itemInput":{
+    "ingredient":{
+      "item":"minecraft:nether_star"
+    }
+  },
+  "output":{
+    "item":"blatium:creative_alloy"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

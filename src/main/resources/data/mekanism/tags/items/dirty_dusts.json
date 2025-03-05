@@ -1,6 +1,12 @@
 {
   "values": [
-    "blatium:blatium_dirty",
-    "blatium:nlium_dirty"
+    {
+      "id": "blatium:blatium_dirty",
+      "required": false
+    },
+    {
+      "id": "blatium:nlium_dirty",
+      "required": false
+    }
   ]
 }

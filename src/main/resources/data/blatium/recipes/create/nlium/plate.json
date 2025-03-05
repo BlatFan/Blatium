@@ -1,0 +1,26 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:pressing",
+        "ingredients": [
+          {
+            "tag": "forge:ingots/nlium"
+          }
+        ],
+        "results": [
+          {
+            "item": "blatium:nlium_plate"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "type":"mekanism:metallurgic_infusing",
+  "chemicalInput":{
+    "amount":100,
+    "tag":"blatium:nlium"
+  },
+  "itemInput":{
+    "ingredient":{
+      "item":"mekanism:creative_energy_cube"
+    }
+  },
+  "output":{
+    "type": "forge:nbt",
+    "item": "mekanism:creative_energy_cube",
+    "count": 1,
+    "nbt": "{mekData:{EnergyContainers:[{Container:0b,stored:\"18446744073709551615.9999\"}]}}"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type":"minecraft:crafting_shaped",
+  "key":{
+    "A":{
+      "item":"blatium:creative_alloy"
+    },
+    "C":{
+      "tag":"forge:circuits/ultimate"
+    }
+  },
+  "pattern":[
+    "ACA"
+  ],
+  "result":{
+    "item":"blatium:creative_control_circuit"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

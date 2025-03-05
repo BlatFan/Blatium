@@ -12,8 +12,6 @@ import java.util.function.Supplier;
 public class BlatiumItems {
     public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, Blatium.MODID);
     
-    public static Map<String, RegistryObject<Item>> BLOCKS = new HashMap<>();
-    
     public static final RegistryObject<Item> BLATIUM_DUST = register("blatium_dust", BlatItem::blatium);
     public static final RegistryObject<Item> BLATIUM_GEAR = register("blatium_gear", BlatItem::blatium);
     public static final RegistryObject<Item> BLATIUM_PLATE = register("blatium_plate", BlatItem::blatium);

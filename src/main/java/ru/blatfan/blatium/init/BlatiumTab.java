@@ -7,7 +7,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.*;
 import ru.blatfan.blatium.Blatium;
-import ru.blatfan.blatium.compact.mekanism.BlatiumMek;
+import ru.blatfan.blatium.compat.CreateCompat;
+import ru.blatfan.blatium.compat.mekanism.MekanismCompat;
 
 public class BlatiumTab {
     public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Blatium.MODID);
@@ -23,8 +24,9 @@ public class BlatiumTab {
                 output.accept(block.get());
             
             if(ModList.get().isLoaded("mekanism"))
-                for(RegistryObject<Item> item : BlatiumMek.REGISTRY.getEntries())
-                    output.accept(item.get());
+                for(RegistryObject<Item> item : MekanismCompat.REGISTRY.getEntries()) output.accept(item.get());
+            if(ModList.get().isLoaded("create"))
+                for(RegistryObject<Item> item : CreateCompat.ITEM.getEntries()) output.accept(item.get());
         })
         .build()
     );

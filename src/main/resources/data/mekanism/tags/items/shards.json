@@ -1,6 +1,12 @@
 {
   "values": [
-    "blatium:blatium_shard",
-    "blatium:nlium_shard"
+    {
+      "id": "blatium:blatium_shard",
+      "required": false
+    },
+    {
+      "id": "blatium:nlium_shard",
+      "required": false
+    }
   ]
 }

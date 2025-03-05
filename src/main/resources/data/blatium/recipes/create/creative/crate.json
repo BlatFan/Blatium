@@ -1,0 +1,54 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:mechanical_crafting",
+        "acceptMirrored": false,
+        "key": {
+          "A": {
+            "item": "blatium:creative_casing"
+          },
+          "B": {
+            "item": "blatium:blatium_block"
+          },
+          "C": {
+            "item": "blatium:power_obsidian"
+          },
+          "D": {
+            "item": "blatium:blatium_gear"
+          },
+          "E": {
+            "item": "blatium:nlium_gear"
+          },
+          "F": {
+            "item": "blatium:nlium_rod"
+          },
+          "G": {
+            "item": "minecraft:nether_star"
+          },
+          "H": {
+            "item": "create:item_vault"
+          }
+        },
+        "pattern": [
+          "AAAAA",
+          "BEFDB",
+          "CFHFC",
+          "CDGEC",
+          "AAAAA"
+        ],
+        "result": {
+          "count": 1,
+          "item": "create:creative_crate"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "type":"mekanism:mek_data",
+  "key":{
+    "A":{
+      "item":"blatium:creative_alloy"
+    },
+    "E":{
+      "item":"blatium:creative_control_circuit"
+    },
+    "I":{
+      "item":"blatium:nlium_block"
+    },
+    "P":{
+      "item":"mekanism:ultimate_energy_cube"
+    }
+  },
+  "pattern":[
+    "AEA",
+    "IPI",
+    "AEA"
+  ],
+  "result":{
+    "item":"mekanism:creative_energy_cube"
+  },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ]
+}

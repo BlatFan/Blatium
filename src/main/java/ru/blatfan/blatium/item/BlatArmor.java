@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -12,9 +13,11 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import ru.blatfan.blatium.Blatium;
+import ru.blatfan.blatium.ServerConfig;
 import ru.blatfan.blatium.init.BlatiumArmorMaterial;
 
 import java.util.List;
+import java.util.Locale;
 
 public class BlatArmor extends ArmorItem {
     private final BlatiumArmorMaterial material;
@@ -38,11 +41,23 @@ public class BlatArmor extends ArmorItem {
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltips, TooltipFlag tooltipFlag) {
         tooltips.add(Component.empty());
         tooltips.add(Component.translatable("tooltip.blatium.unbreakable").withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
+        if(ServerConfig.FULL_SET.get())tooltips.add(Component.translatable("tooltip.blatium.full_set."+material.getName())
+            .withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
+        
+        if(getType()==Type.HELMET && !ServerConfig.HELMET.get()) return;
+        if(getType()==Type.CHESTPLATE && !ServerConfig.CHESTPLATE.get()) return;
+        if(getType()==Type.LEGGINGS && !ServerConfig.LEGGINGS.get()) return;
+        if(getType()==Type.BOOTS && !ServerConfig.BOOTS.get()) return;
+        
         tooltips.add(Component.empty());
         tooltips.add(Component.translatable("tooltip.blatium."+getType().toString().toLowerCase()).withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
-        tooltips.add(Component.empty());
         
         super.appendHoverText(itemStack, level, tooltips, tooltipFlag);
+    }
+    
+    @Override
+    public @Nullable String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+        return String.format(Locale.ROOT, "%s:textures/models/armor/%s_layer_%d%s.png", Blatium.MODID, material.getName(), slot == EquipmentSlot.LEGS ? 2 : 1, type == null ? "" : String.format(Locale.ROOT, "_%s", type));
     }
     
     @Override

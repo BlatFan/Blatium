@@ -24,7 +24,7 @@ public class BlatiumBlocks {
     
     public static RegistryObject<Block> register(String id, Supplier<Block> sup){
         RegistryObject<Block> reg = REGISTRY.register(id, sup);
-        BlatiumItems.BLOCKS.put(id, BlatiumItems.REGISTRY.register(id, () -> new BlatBlockItem(reg.get(), id.contains("blatium"))));
+        BlatiumItems.REGISTRY.register(id, () -> new BlatBlockItem(reg.get(), id.contains("blatium")));
         return reg;
     }
 }

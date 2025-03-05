@@ -1,0 +1,29 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "create"
+        }
+      ],
+      "recipe": {
+        "type": "create:item_application",
+        "ingredients": [
+          {
+            "item": "blatium:power_obsidian"
+          },
+          {
+            "tag": "forge:storage_blocks/blatium"
+          }
+        ],
+        "results": [
+          {
+            "item": "blatium:creative_casing"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "blatium:enriched_blatium",
+      "required": false
+    },
+    {
+      "id": "blatium:enriched_nlium",
+      "required": false
+    }
+  ]
+}

@@ -8,7 +8,8 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import ru.blatfan.blatium.compact.mekanism.BlatiumMek;
+import ru.blatfan.blatium.compat.CreateCompat;
+import ru.blatfan.blatium.compat.mekanism.MekanismCompat;
 import ru.blatfan.blatium.init.BlatiumBlocks;
 import ru.blatfan.blatium.init.BlatiumItems;
 import ru.blatfan.blatium.init.BlatiumTab;
@@ -36,7 +37,8 @@ public class Blatium {
         BlatiumItems.REGISTRY.register(modEventBus);
         BlatiumBlocks.REGISTRY.register(modEventBus);
         
-        if(ModList.get().isLoaded("mekanism")) new BlatiumMek(modEventBus);
+        if(ModList.get().isLoaded("mekanism")) new MekanismCompat(modEventBus);
+        if(ModList.get().isLoaded("create")) new CreateCompat(modEventBus);
         
         BlatiumTab.REGISTRY.register(modEventBus);
     }

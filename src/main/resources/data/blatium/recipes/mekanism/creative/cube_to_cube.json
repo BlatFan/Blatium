@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "mekanism:creative_energy_cube"
+    }
+  ],
+  "result": {
+    "item": "mekanism:creative_energy_cube"
+  }
+}
