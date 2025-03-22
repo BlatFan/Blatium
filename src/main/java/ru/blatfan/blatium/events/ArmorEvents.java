@@ -1,20 +1,13 @@
 package ru.blatfan.blatium.events;
 
-import java.util.Iterator;
-
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.AirItem;
-import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.entity.ProjectileImpactEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import ru.blatfan.blatium.ServerConfig;
-import ru.blatfan.blatium.init.BlatiumArmorMaterial;
-import ru.blatfan.blatium.init.BlatiumItems;
+import ru.blatfan.blatium.init.BlatiumArmorMaterials;
 import ru.blatfan.blatium.item.BlatArmor;
 
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.FORGE)
@@ -62,17 +55,17 @@ public class ArmorEvents {
 			chestplate instanceof BlatArmor c &&
 			leggings instanceof BlatArmor l &&
 			boots instanceof BlatArmor b && ServerConfig.FULL_SET.get()){
-				if(h.getMaterial()==BlatiumArmorMaterial.BLATIUM &&
-					c.getMaterial()==BlatiumArmorMaterial.BLATIUM &&
-					l.getMaterial()==BlatiumArmorMaterial.BLATIUM &&
-					b.getMaterial()==BlatiumArmorMaterial.BLATIUM) {
+				if(h.getMaterial()== BlatiumArmorMaterials.BLATIUM &&
+					c.getMaterial()== BlatiumArmorMaterials.BLATIUM &&
+					l.getMaterial()== BlatiumArmorMaterials.BLATIUM &&
+					b.getMaterial()== BlatiumArmorMaterials.BLATIUM) {
 					if (Math.random()>0.75)
 						event.setCanceled(true);
 				}
-				if(h.getMaterial()==BlatiumArmorMaterial.NLIUM &&
-					c.getMaterial()==BlatiumArmorMaterial.NLIUM &&
-					l.getMaterial()==BlatiumArmorMaterial.NLIUM &&
-					b.getMaterial()==BlatiumArmorMaterial.NLIUM) {
+				if(h.getMaterial()== BlatiumArmorMaterials.NLIUM &&
+					c.getMaterial()== BlatiumArmorMaterials.NLIUM &&
+					l.getMaterial()== BlatiumArmorMaterials.NLIUM &&
+					b.getMaterial()== BlatiumArmorMaterials.NLIUM) {
 					if (Math.random()>0.25)
 						event.setCanceled(true);
 				}

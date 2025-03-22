@@ -31,15 +31,14 @@ public class Blatium {
     
     public Blatium() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ServerConfig.SPEC, "blatfan/blatium-common.toml");
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         
-        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        BlatiumItems.REGISTRY.register(bus);
+        BlatiumBlocks.REGISTRY.register(bus);
         
-        BlatiumItems.REGISTRY.register(modEventBus);
-        BlatiumBlocks.REGISTRY.register(modEventBus);
+        if(ModList.get().isLoaded("mekanism")) MekanismCompat.init(bus);
+        if(ModList.get().isLoaded("create")) CreateCompat.init(bus);
         
-        if(ModList.get().isLoaded("mekanism")) new MekanismCompat(modEventBus);
-        if(ModList.get().isLoaded("create")) new CreateCompat(modEventBus);
-        
-        BlatiumTab.REGISTRY.register(modEventBus);
+        BlatiumTab.REGISTRY.register(bus);
     }
 }

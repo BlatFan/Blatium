@@ -2,7 +2,6 @@ package ru.blatfan.blatium.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,22 +13,22 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 import ru.blatfan.blatium.Blatium;
 import ru.blatfan.blatium.ServerConfig;
-import ru.blatfan.blatium.init.BlatiumArmorMaterial;
+import ru.blatfan.blatium.init.BlatiumArmorMaterials;
 
 import java.util.List;
 import java.util.Locale;
 
 public class BlatArmor extends ArmorItem {
-    private final BlatiumArmorMaterial material;
+    private final BlatiumArmorMaterials material;
     
-    public BlatArmor(BlatiumArmorMaterial armorMaterial, ArmorItem.Type type) {
-        super(armorMaterial, type, new Item.Properties().fireResistant().rarity(armorMaterial==BlatiumArmorMaterial.BLATIUM ? Blatium.RARITY_BLATIUM : Blatium.RARITY_NLIUM));
+    public BlatArmor(BlatiumArmorMaterials armorMaterial, ArmorItem.Type type) {
+        super(armorMaterial, type, new Item.Properties().fireResistant().rarity(armorMaterial== BlatiumArmorMaterials.BLATIUM ? Blatium.RARITY_BLATIUM : Blatium.RARITY_NLIUM));
         this.material=armorMaterial;
     }
     
     @Override
     public Component getName(ItemStack p_41458_) {
-        return super.getName(p_41458_).copy().withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM));
+        return super.getName(p_41458_).copy().withStyle(style -> style.withColor(material== BlatiumArmorMaterials.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM));
     }
     
     @Override
@@ -40,9 +39,9 @@ public class BlatArmor extends ArmorItem {
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltips, TooltipFlag tooltipFlag) {
         tooltips.add(Component.empty());
-        tooltips.add(Component.translatable("tooltip.blatium.unbreakable").withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
+        tooltips.add(Component.translatable("tooltip.blatium.unbreakable").withStyle(style -> style.withColor(material== BlatiumArmorMaterials.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
         if(ServerConfig.FULL_SET.get())tooltips.add(Component.translatable("tooltip.blatium.full_set."+material.getName())
-            .withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
+            .withStyle(style -> style.withColor(material== BlatiumArmorMaterials.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
         
         if(getType()==Type.HELMET && !ServerConfig.HELMET.get()) return;
         if(getType()==Type.CHESTPLATE && !ServerConfig.CHESTPLATE.get()) return;
@@ -50,7 +49,7 @@ public class BlatArmor extends ArmorItem {
         if(getType()==Type.BOOTS && !ServerConfig.BOOTS.get()) return;
         
         tooltips.add(Component.empty());
-        tooltips.add(Component.translatable("tooltip.blatium."+getType().toString().toLowerCase()).withStyle(style -> style.withColor(material==BlatiumArmorMaterial.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
+        tooltips.add(Component.translatable("tooltip.blatium."+getType().toString().toLowerCase()).withStyle(style -> style.withColor(material== BlatiumArmorMaterials.BLATIUM ? Blatium.COLOR_BLATIUM : Blatium.COLOR_NLIUM)));
         
         super.appendHoverText(itemStack, level, tooltips, tooltipFlag);
     }
@@ -76,7 +75,7 @@ public class BlatArmor extends ArmorItem {
     }
     
     @Override
-    public BlatiumArmorMaterial getMaterial() {
+    public BlatiumArmorMaterials getMaterial() {
         return this.material;
     }
     

@@ -30,7 +30,7 @@ public class CreateCompat {
         return reg;
     }
     
-    public CreateCompat(IEventBus modEventBus){
+    public static void init(IEventBus modEventBus){
         ITEM.register(modEventBus);
         BLOCK.register(modEventBus);
     }

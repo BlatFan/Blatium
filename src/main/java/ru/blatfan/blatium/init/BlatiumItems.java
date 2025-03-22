@@ -5,8 +5,6 @@ import net.minecraftforge.registries.*;
 import ru.blatfan.blatium.Blatium;
 import ru.blatfan.blatium.item.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.function.Supplier;
 
 public class BlatiumItems {
@@ -27,10 +25,10 @@ public class BlatiumItems {
     public static final RegistryObject<Item> BLATIUM_SHOVEL = register("blatium_shovel", BlatiumShovel::new);
     public static final RegistryObject<Item> BLATIUM_HOE = register("blatium_hoe", BlatiumHoe::new);
     
-    public static final RegistryObject<Item> BLATIUM_HELMET = register("blatium_helmet", () -> new BlatArmor(BlatiumArmorMaterial.BLATIUM, ArmorItem.Type.HELMET));
-    public static final RegistryObject<Item> BLATIUM_CHESTPLATE = register("blatium_chestplate", () -> new BlatArmor(BlatiumArmorMaterial.BLATIUM, ArmorItem.Type.CHESTPLATE));
-    public static final RegistryObject<Item> BLATIUM_LEGGINGS = register("blatium_leggings", () -> new BlatArmor(BlatiumArmorMaterial.BLATIUM, ArmorItem.Type.LEGGINGS));
-    public static final RegistryObject<Item> BLATIUM_BOOTS = register("blatium_boots", () -> new BlatArmor(BlatiumArmorMaterial.BLATIUM, ArmorItem.Type.BOOTS));
+    public static final RegistryObject<Item> BLATIUM_HELMET = register("blatium_helmet", () -> new BlatArmor(BlatiumArmorMaterials.BLATIUM, ArmorItem.Type.HELMET));
+    public static final RegistryObject<Item> BLATIUM_CHESTPLATE = register("blatium_chestplate", () -> new BlatArmor(BlatiumArmorMaterials.BLATIUM, ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> BLATIUM_LEGGINGS = register("blatium_leggings", () -> new BlatArmor(BlatiumArmorMaterials.BLATIUM, ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> BLATIUM_BOOTS = register("blatium_boots", () -> new BlatArmor(BlatiumArmorMaterials.BLATIUM, ArmorItem.Type.BOOTS));
     
     public static final RegistryObject<Item> NLIUM_DUST = register("nlium_dust", BlatItem::nlium);
     public static final RegistryObject<Item> NLIUM_GEAR = register("nlium_gear", BlatItem::nlium);
@@ -47,10 +45,10 @@ public class BlatiumItems {
     public static final RegistryObject<Item> NLIUM_SHOVEL = register("nlium_shovel", NliumShovel::new);
     public static final RegistryObject<Item> NLIUM_HOE = register("nlium_hoe", NliumHoe::new);
     
-    public static final RegistryObject<Item> NLIUM_HELMET = register("nlium_helmet", () -> new BlatArmor(BlatiumArmorMaterial.NLIUM, ArmorItem.Type.HELMET));
-    public static final RegistryObject<Item> NLIUM_CHESTPLATE = register("nlium_chestplate", () -> new BlatArmor(BlatiumArmorMaterial.NLIUM, ArmorItem.Type.CHESTPLATE));
-    public static final RegistryObject<Item> NLIUM_LEGGINGS = register("nlium_leggings", () -> new BlatArmor(BlatiumArmorMaterial.NLIUM, ArmorItem.Type.LEGGINGS));
-    public static final RegistryObject<Item> NLIUM_BOOTS = register("nlium_boots", () -> new BlatArmor(BlatiumArmorMaterial.NLIUM, ArmorItem.Type.BOOTS));
+    public static final RegistryObject<Item> NLIUM_HELMET = register("nlium_helmet", () -> new BlatArmor(BlatiumArmorMaterials.NLIUM, ArmorItem.Type.HELMET));
+    public static final RegistryObject<Item> NLIUM_CHESTPLATE = register("nlium_chestplate", () -> new BlatArmor(BlatiumArmorMaterials.NLIUM, ArmorItem.Type.CHESTPLATE));
+    public static final RegistryObject<Item> NLIUM_LEGGINGS = register("nlium_leggings", () -> new BlatArmor(BlatiumArmorMaterials.NLIUM, ArmorItem.Type.LEGGINGS));
+    public static final RegistryObject<Item> NLIUM_BOOTS = register("nlium_boots", () -> new BlatArmor(BlatiumArmorMaterials.NLIUM, ArmorItem.Type.BOOTS));
     
     public static RegistryObject<Item> register(String id, Supplier<Item> itemSupplier){
         return REGISTRY.register(id, itemSupplier);

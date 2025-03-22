@@ -5,7 +5,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.config.ModConfigEvent;
-import ru.blatfan.blatium.init.BlatiumArmorMaterial;
+import ru.blatfan.blatium.init.BlatiumArmorMaterials;
 import ru.blatfan.blatium.item.*;
 
 import java.util.List;
@@ -25,10 +25,10 @@ public class ServerConfig {
         BUILDER.comment("Changing armor and tools values requires game restart");
 
         BLATIUM_CONFIG = defineConfig("blatium",
-            List.of(400, 550, 500, 400),
+            List.of(400, 500, 550, 400),
             25,
             25,
-            750,
+            500,
             25,
             10f,
             800,
@@ -36,10 +36,10 @@ public class ServerConfig {
             10
         );
         NLIUM_CONFIG = defineConfig("nlium",
-                List.of(800, 1100, 1000, 800),
+                List.of(800, 1000, 1100, 800),
                 50,
                 50,
-                1500,
+                1000,
             50,
             20f,
                 1600,
@@ -115,7 +115,7 @@ public class ServerConfig {
 
     @SubscribeEvent
     public static void onReload(ModConfigEvent.Reloading event) {
-        for (BlatiumArmorMaterial value : BlatiumArmorMaterial.values()) {
+        for (BlatiumArmorMaterials value : BlatiumArmorMaterials.values()) {
             value.reload();
         }
         BlatiumSword.reload();

@@ -40,7 +40,7 @@ public class MekanismCompat {
     public static final InfuseTypeRegistryObject<InfuseType> BLATIUM = INFUSE_TYPES.register("blatium", Blatium.COLOR_BLATIUM);
     public static final InfuseTypeRegistryObject<InfuseType> NLIUM = INFUSE_TYPES.register("nlium", Blatium.COLOR_NLIUM);
     
-    public MekanismCompat(IEventBus modEventBus){
+    public static void init(IEventBus modEventBus){
         REGISTRY.register(modEventBus);
         BlatiumSlurries.SLURRIES.register(modEventBus);
         INFUSE_TYPES.register(modEventBus);
