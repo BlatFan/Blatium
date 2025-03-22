@@ -19,15 +19,15 @@ import java.util.List;
 import java.util.UUID;
 
 public class BlatiumSword extends SwordItem {
-    private final ServerConfig.MaterialSetConfig config = ServerConfig.BLATIUM_CONFIG;
     public BlatiumSword() {
         super(BlatiumToolTiers.BLATIUM_TIER, 0, 0, new Item.Properties().fireResistant().rarity(Blatium.RARITY_BLATIUM));
     }
     
     private Multimap<Attribute, AttributeModifier> makeAttributeMap() {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        double attackDamage = this.config.swordDamage().get();
-        double attackSpeed = this.config.swordSpeed().get();
+        ServerConfig.MaterialSetConfig config = ServerConfig.BLATIUM_CONFIG;
+        double attackDamage = config.swordDamage().get()-4;
+        double attackSpeed = config.swordSpeed().get()-4;
         if (attackDamage != 0) {
             builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Attack damage", attackDamage, AttributeModifier.Operation.ADDITION));
         }

@@ -21,17 +21,16 @@ import java.util.UUID;
 
 public class BlatiumPickaxe extends PickaxeItem {
     private float destroySpeed;
-    private final ServerConfig.MaterialSetConfig config = ServerConfig.BLATIUM_CONFIG;
     public BlatiumPickaxe() {
         super(BlatiumToolTiers.BLATIUM_TIER, 0, 0, new Item.Properties().fireResistant().rarity(Blatium.RARITY_BLATIUM));
     }
     
     private Multimap<Attribute, AttributeModifier> makeAttributeMap() {
-        destroySpeed=config.pickaxeDestroyTime().get();
-        
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        double attackDamage = this.config.pickaxeDamage().get();
-        double attackSpeed = this.config.pickaxeSpeed().get();
+        ServerConfig.MaterialSetConfig config = ServerConfig.BLATIUM_CONFIG;
+        destroySpeed= config.pickaxeDestroyTime().get().floatValue();
+        double attackDamage = config.swordDamage().get()-4;
+        double attackSpeed = config.swordSpeed().get()-4;
         if (attackDamage != 0) {
             builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Attack damage", attackDamage, AttributeModifier.Operation.ADDITION));
         }

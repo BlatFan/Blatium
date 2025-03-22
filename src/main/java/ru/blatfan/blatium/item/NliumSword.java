@@ -22,15 +22,15 @@ import java.util.List;
 import java.util.UUID;
 
 public class NliumSword extends SwordItem {
-    private final ServerConfig.MaterialSetConfig config = ServerConfig.NLIUM_CONFIG;
     public NliumSword() {
         super(BlatiumToolTiers.NLIUM_TIER, 0, 0, new Properties().fireResistant().rarity(Blatium.RARITY_NLIUM));
     }
     
     private Multimap<Attribute, AttributeModifier> makeAttributeMap() {
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-        double attackDamage = this.config.swordDamage().get();
-        double attackSpeed = this.config.swordSpeed().get();
+        ServerConfig.MaterialSetConfig config = ServerConfig.NLIUM_CONFIG;
+        double attackDamage = config.swordDamage().get()-4;
+        double attackSpeed = config.swordSpeed().get()-4;
         if (attackDamage != 0) {
             builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Attack damage", attackDamage, AttributeModifier.Operation.ADDITION));
         }

@@ -15,8 +15,6 @@ import ru.blatfan.blatium.Blatium;
 import java.util.List;
 
 public class BlatiumToolTiers {
-    public static final TagKey<Block> BLATIUM_TOOL_TAG = BlockTags.create(new ResourceLocation("mineable/pickaxe"));
-    public static final TagKey<Block> NLIUM_TOOL_TAG = BlockTags.create(new ResourceLocation("mineable/pickaxe"));
     public static final TagKey<Block> BLATIUM_TIER_TAG = BlockTags.create(new ResourceLocation("forge", "needs_blatium_tool"));
     public static final TagKey<Block> NLIUM_TIER_TAG = BlockTags.create(new ResourceLocation("forge", "needs_nlium_tool"));
 

@@ -23,28 +23,38 @@ public class ServerConfig {
     static {
         BUILDER.push("Materials Config");
         BUILDER.comment("Changing armor and tools values requires game restart");
-
+        
         BLATIUM_CONFIG = defineConfig("blatium",
-            List.of(400, 500, 550, 400),
+            List.of(400, 550, 500, 400),
             25,
             25,
-            500,
+            750,
+            1.4f,
             25,
+            1.2f,
             10f,
             800,
+            1f,
             10,
-            10
+            1f,
+            10,
+            4f
         );
         NLIUM_CONFIG = defineConfig("nlium",
-                List.of(800, 1000, 1100, 800),
-                50,
-                50,
-                1000,
+            List.of(800, 1100, 1000, 800),
             50,
+            50,
+            1500,
+            1.4f,
+            50,
+            1.2f,
             20f,
-                1600,
+            1600,
+            1f,
             20,
-            20
+            1f,
+            20,
+            4f
         );
         BUILDER.pop();
         BUILDER.push("Armor Damage Immune");
@@ -58,51 +68,50 @@ public class ServerConfig {
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
-
-    private static MaterialSetConfig defineConfig(String name,
-                                                  List<Integer> defenseValues, int toughness, double knockbackResistance,
-                                                  int swordDamage,
-                                                  int pickaxeDamage, float pickaxeDestroyTime,
-                                                  int axeDamage,
-                                                  int shovelDamage,
-                                                  int hoeDamage
+    
+    private static MaterialSetConfig defineConfig(String name, List<Integer> defenseValues, int toughness, double knockbackResistance,
+                                                  int swordDamage, float swordSpeed,
+                                                  int pickaxeDamage, float pickaxeSpeed,float pickaxeDestroyTime,
+                                                  int axeDamage, float axeSpeed,
+                                                  int shovelDamage, float shovelSpeed,
+                                                  int hoeDamage, float hoeSpeed
     
     ) {
         ServerConfig.BUILDER.push(name);
         var config = new MaterialSetConfig(
-                ServerConfig.BUILDER.defineList("armor.values", () -> defenseValues, (x) -> true),
-                ServerConfig.BUILDER.define("armor.toughness", toughness),
-                ServerConfig.BUILDER.define("armor.knockbackResistance", knockbackResistance),
-                ServerConfig.BUILDER.define("sword.damage", swordDamage),
-                ServerConfig.BUILDER.define("pickaxe.damage", pickaxeDamage),
-                ServerConfig.BUILDER.define("pickaxe.destroyTime", pickaxeDestroyTime),
-                ServerConfig.BUILDER.define("axe.damage", axeDamage),
-                ServerConfig.BUILDER.define("hoe.damage", hoeDamage),
-                ServerConfig.BUILDER.define("shovel.damage", shovelDamage),
-                ServerConfig.BUILDER.define("sword.speed", (float) 1.4),
-                ServerConfig.BUILDER.define("pickaxe.speed", (float) 1.2),
-                ServerConfig.BUILDER.define("axe.speed", (float) 1.0),
-                ServerConfig.BUILDER.define("shovel.speed", (float) 1.0),
-                ServerConfig.BUILDER.define("hoe.speed", (float) 4.0));
+            ServerConfig.BUILDER.defineList("armor.values", () -> defenseValues, (x) -> true),
+            ServerConfig.BUILDER.defineInRange("armor.toughness", toughness, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("armor.knockbackResistance", knockbackResistance, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("sword.damage", swordDamage, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("pickaxe.damage", pickaxeDamage, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("pickaxe.destroyTime", pickaxeDestroyTime, 0f, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("axe.damage", axeDamage, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("hoe.damage", hoeDamage, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("shovel.damage", shovelDamage, 0, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("sword.speed", swordSpeed, 0f, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("pickaxe.speed", pickaxeSpeed, 0f, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("axe.speed", axeSpeed, 0f, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("shovel.speed", shovelSpeed, 0f, Integer.MAX_VALUE),
+            ServerConfig.BUILDER.defineInRange("hoe.speed", hoeSpeed, 0f, Integer.MAX_VALUE));
         ServerConfig.BUILDER.pop();
         return config;
     }
 
     public record MaterialSetConfig(
             ForgeConfigSpec.ConfigValue<List<? extends Integer>> defenseValues,
-            ForgeConfigSpec.ConfigValue<? extends Integer> toughness,
+            ForgeConfigSpec.IntValue toughness,
             ForgeConfigSpec.ConfigValue<? extends Double> knockbackResistance,
-            ForgeConfigSpec.ConfigValue<? extends Integer> swordDamage,
-            ForgeConfigSpec.ConfigValue<? extends Integer> pickaxeDamage,
-            ForgeConfigSpec.ConfigValue<? extends Float> pickaxeDestroyTime,
-            ForgeConfigSpec.ConfigValue<? extends Integer> axeDamage,
-            ForgeConfigSpec.ConfigValue<? extends Integer> shovelDamage,
-            ForgeConfigSpec.ConfigValue<? extends Integer> hoeDamage,
-            ForgeConfigSpec.ConfigValue<? extends Float> swordSpeed,
-            ForgeConfigSpec.ConfigValue<? extends Float> pickaxeSpeed,
-            ForgeConfigSpec.ConfigValue<? extends Float> axeSpeed,
-            ForgeConfigSpec.ConfigValue<? extends Float> shovelSpeed,
-            ForgeConfigSpec.ConfigValue<? extends Float> hoeSpeed
+            ForgeConfigSpec.IntValue swordDamage,
+            ForgeConfigSpec.IntValue pickaxeDamage,
+            ForgeConfigSpec.DoubleValue pickaxeDestroyTime,
+            ForgeConfigSpec.IntValue axeDamage,
+            ForgeConfigSpec.IntValue shovelDamage,
+            ForgeConfigSpec.IntValue hoeDamage,
+            ForgeConfigSpec.DoubleValue swordSpeed,
+            ForgeConfigSpec.DoubleValue pickaxeSpeed,
+            ForgeConfigSpec.DoubleValue axeSpeed,
+            ForgeConfigSpec.DoubleValue shovelSpeed,
+            ForgeConfigSpec.DoubleValue hoeSpeed
     ) {
         public double getDefenseFor(EquipmentSlot slot) {
             if (defenseValues.get().size() != 4) {
